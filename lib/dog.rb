@@ -40,4 +40,8 @@ class Dog
     DB[:conn].execute(sql, self.name, self.breed, self.id)
   end
   
+  def self.create(attributes_hash)
+    attributes_hash.each { |key, value| self.send(("#{key}="), value) }
+  end
+  
 end
